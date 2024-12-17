@@ -4,11 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Descargar Programas Depor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(to right, #4e73df, #224abe);
+            color: #ffffff;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 80%;
+            max-width: 400px;
+        }
+        button {
+            background-color: #f8f9fc;
+            color: #4e73df;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background-color: #4e73df;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+    </style>
 </head>
 <body>
     <h1>Descargar Programas Depor</h1>
-    <button onclick="location.href='https://drive.google.com/uc?export=download&id=1cj4LIKSwi5SZcwi3x9AtS2T41CpcbCRb'">Descargar Programa para Instalar PC nuevo.rar</button>
-    <button onclick="location.href='https://drive.google.com/uc?export=download&id=10QMnvYNtl1CqMFGR35voVHZ3B2Yxl6D_'">Descargar Programa para Subir FotosMacro al Drive</button>
-    <p></p>
+    <div class="container">
+        <button onclick="location.href='https://drive.google.com/uc?export=download&id=1cj4LIKSwi5SZcwi3x9AtS2T41CpcbCRb'">
+            Descargar Programa para Instalar PC nuevo
+        </button>
+        <button onclick="location.href='https://drive.google.com/uc?export=download&id=10QMnvYNtl1CqMFGR35voVHZ3B2Yxl6D_'">
+            Descargar Programa para Subir FotosMacro al Drive
+        </button>
+    </div>
+    <footer>
+        &copy; 2024 Depor Software. Todos los derechos reservados.
+    </footer>
 </body>
 </html>
