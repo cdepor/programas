@@ -24,10 +24,11 @@
         }
         .container {
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: space-between;
             gap: 15px;
             width: 80%;
-            max-width: 400px;
+            max-width: 600px;
         }
         button {
             background-color: #f8f9fc;
@@ -40,6 +41,8 @@
             border-radius: 5px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
+            flex: 1 1 calc(50% - 15px); /* Ajusta el tamaño para estar al lado */
+            max-width: 250px; /* Ancho máximo de los botones */
         }
         button:hover {
             background-color: #4e73df;
@@ -50,12 +53,11 @@
             margin-bottom: 20px;
         }
         .image-container img {
-            width: 300px; /* Cambia esto al ancho deseado */
-            height: auto; /* Mantiene la proporción de la imagen */
+            width: 300px;
+            height: auto;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
         footer {
             margin-top: 20px;
             font-size: 0.9em;
