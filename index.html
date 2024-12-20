@@ -43,7 +43,7 @@
             width: 90%;
             max-width: 1200px;
             margin: 20px auto;
-            flex-grow: 1; /* Asegura que el contenido ocupe el espacio disponible */
+            flex-grow: 1;
         }
 
         button {
@@ -75,7 +75,7 @@
             padding: 10px 0;
             font-size: 0.9em;
             text-align: center;
-            margin-top: auto; /* Asegura que el footer quede al final */
+            margin-top: auto;
         }
 
         #login {
@@ -98,8 +98,8 @@
             text-align: center;
         }
 
-	 #login button {
-            width: 200px; /* Hace que el botón de acceso sea más ancho */
+        #login button {
+            width: 200px;
         }
     </style>
 </head>
@@ -143,23 +143,9 @@
             { name: "Descargar Programa para Subir FotosMacro al Drive", id: "10QMnvYNtl1CqMFGR35voVHZ3B2Yxl6D_" },
             { name: "Descargar Programa para reiniciar servicio de Impresión", id: "141qR7eZsds4OPuG11Kh65G2YK-s0SEIu" },
             { name: "Descargar DesInstalador", id: "1IbBs1ph9TxffkynubS0BvbIB1wjPaVOM" },
-            { name: "Descargar Office 2024", id: "1AQu34EYfarrYLOOmNH6RjUWKpSiZ6uok" }
-	    { name: "Mantenedor de vendedores", id: "1RyI1zCrlDPse1_STx5sPUjHggWAXmFQx" }
-	    { name: "Vacío", id: "" }
-	    { name: "Vacío", id: "" }
-	    { name: "Vacío", id: "" }
-	    { name: "Vacío", id: "" }
-	    { name: "Vacío", id: "" }
-            { name: "Vacío", id: "" }
-            { name: "Vacío", id: "" }
-            { name: "Vacío", id: "" }
-            { name: "Vacío", id: "" }
-            { name: "Vacío", id: "" }
-            { name: "Vacío", id: "" }
-            { name: "Vacío", id: "" }
-            { name: "Vacío", id: "" }
-            { name: "Vacío", id: "" }
-            { name: "Vacío", id: "" }
+            { name: "Descargar Office 2024", id: "1AQu34EYfarrYLOOmNH6RjUWKpSiZ6uok" },
+            { name: "Mantenedor de vendedores", id: "1RyI1zCrlDPse1_STx5sPUjHggWAXmFQx" },
+            { name: "Vacío", id: "" },
             { name: "Vacío", id: "" }
         ];
 
@@ -169,9 +155,13 @@
             programs.forEach(program => {
                 const button = document.createElement("button");
                 button.textContent = program.name;
-                button.onclick = () => {
-                    location.href = `https://drive.google.com/uc?export=download&id=${program.id}`;
-                };
+                if (program.id) {
+                    button.onclick = () => {
+                        location.href = `https://drive.google.com/uc?export=download&id=${program.id}`;
+                    };
+                } else {
+                    button.disabled = true; // Botones vacíos no hacen nada
+                }
                 container.appendChild(button);
             });
         }
