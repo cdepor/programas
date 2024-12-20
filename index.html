@@ -13,7 +13,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
             background: linear-gradient(to right, #4e73df, #224abe);
             color: #ffffff;
             text-align: center;
@@ -23,12 +23,12 @@
             font-size: 2.5em;
         }
         .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajusta las columnas automáticamente */
             gap: 15px;
-            width: 80%;
-            max-width: 600px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         button {
             background-color: #f8f9fc;
@@ -41,8 +41,8 @@
             border-radius: 5px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
-            flex: 1 1 calc(50% - 15px); /* Ajusta el tamaño para estar al lado */
-            max-width: 250px; /* Ancho máximo de los botones */
+            text-align: center;
+            width: 100%; /* Botones siempre ocupan el ancho disponible */
         }
         button:hover {
             background-color: #4e73df;
@@ -62,40 +62,83 @@
             margin-top: 20px;
             font-size: 0.9em;
         }
+        #login {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        #content {
+            display: none;
+        }
+        input {
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: none;
+            max-width: 300px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <h1>Descargar Programas Depor</h1>
-    <div class="image-container">
-        <img src="./DeporBlanco.png" alt="DEPOR">
+    <div id="login">
+        <h1>Acceso Restringido</h1>
+        <p>Introduce la contraseña para acceder:</p>
+        <input type="password" id="password" placeholder="Contraseña">
+        <button onclick="checkPassword()">Entrar</button>
     </div>
-    <div class="container">
-        <button onclick="location.href='https://drive.google.com/uc?export=download&id=1-DVbgjpybUtVSgHfiWUqv_53akEiV_1i'">
-             Descargar Exclusión Defender
-        </button>
-         <button onclick="location.href='https://drive.google.com/uc?export=download&id=1AJq5Tn1uj9wjH47vY7jP-3gNihDm3P4m'">
-            Descargar Winrar
-        </button>
-        
-        <button onclick="location.href='https://drive.google.com/uc?export=download&id=1cj4LIKSwi5SZcwi3x9AtS2T41CpcbCRb'">
-            Descargar Programa para Instalar PC nuevo
-        </button>
-        <button onclick="location.href='https://drive.google.com/uc?export=download&id=10QMnvYNtl1CqMFGR35voVHZ3B2Yxl6D_'">
-            Descargar Programa para Subir FotosMacro al Drive
-        </button>
-        <button onclick="location.href='https://drive.google.com/uc?export=download&id=141qR7eZsds4OPuG11Kh65G2YK-s0SEIu'">
-            Descargar Programa para reiniciar servicio de Impresión
-        </button>
-        
-        <button onclick="location.href='https://drive.google.com/uc?export=download&id=1IbBs1ph9TxffkynubS0BvbIB1wjPaVOM'">
-            Descargar DesInstalador
-        </button>
-         <button onclick="location.href='https://drive.google.com/uc?export=download&id=1AQu34EYfarrYLOOmNH6RjUWKpSiZ6uok'">
-            Descargar Office 2024
-        </button>
+    <div id="content">
+        <h1>Descargar Programas Depor</h1>
+        <div class="image-container">
+            <img src="./DeporBlanco.png" alt="DEPOR">
+        </div>
+        <div class="container" id="button-container">
+            <!-- Los botones se generarán automáticamente aquí -->
+        </div>
+        <footer>
+            &copy; 2024 Comercial Depor Software. Todos los derechos reservados.
+        </footer>
     </div>
-    <footer>
-        &copy; 2024 Comercial Depor Software. Todos los derechos reservados.
-    </footer>
+    <script>
+        // Contraseña para acceder al contenido
+        function checkPassword() {
+            const password = document.getElementById("password").value;
+            const correctPassword = "Depor2024"; // Cambia esta contraseña según tu preferencia
+            if (password === correctPassword) {
+                document.getElementById("login").style.display = "none";
+                document.getElementById("content").style.display = "block";
+            } else {
+                alert("Contraseña incorrecta");
+            }
+        }
+
+        // Lista de botones con sus nombres y IDs de Google Drive
+        const programs = [
+            { name: "Descargar Exclusión Defender", id: "1-DVbgjpybUtVSgHfiWUqv_53akEiV_1i" },
+            { name: "Descargar Winrar", id: "1AJq5Tn1uj9wjH47vY7jP-3gNihDm3P4m" },
+            { name: "Descargar Programa para Instalar PC nuevo", id: "1cj4LIKSwi5SZcwi3x9AtS2T41CpcbCRb" },
+            { name: "Descargar Programa para Subir FotosMacro al Drive", id: "10QMnvYNtl1CqMFGR35voVHZ3B2Yxl6D_" },
+            { name: "Descargar Programa para reiniciar servicio de Impresión", id: "141qR7eZsds4OPuG11Kh65G2YK-s0SEIu" },
+            { name: "Descargar DesInstalador", id: "1IbBs1ph9TxffkynubS0BvbIB1wjPaVOM" },
+            { name: "Descargar Office 2024", id: "1AQu34EYfarrYLOOmNH6RjUWKpSiZ6uok" }
+        ];
+
+        // Función para generar botones dinámicamente
+        function generateButtons() {
+            const container = document.getElementById("button-container");
+            programs.forEach(program => {
+                const button = document.createElement("button");
+                button.textContent = program.name;
+                button.onclick = () => {
+                    location.href = `https://drive.google.com/uc?export=download&id=${program.id}`;
+                };
+                container.appendChild(button);
+            });
+        }
+
+        // Generar los botones al cargar la página
+        generateButtons();
+    </script>
 </body>
 </html>
