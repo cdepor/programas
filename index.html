@@ -14,7 +14,7 @@
             text-align: center;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            min-height: 100vh;
         }
 
         header {
@@ -43,6 +43,7 @@
             width: 90%;
             max-width: 1200px;
             margin: 20px auto;
+            flex-grow: 1; /* Asegura que el contenido ocupe el espacio disponible */
         }
 
         button {
@@ -70,8 +71,11 @@
         }
 
         footer {
-            margin-top: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 10px 0;
             font-size: 0.9em;
+            text-align: center;
+            margin-top: auto; /* Asegura que el footer quede al final */
         }
 
         #login {
