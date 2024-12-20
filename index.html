@@ -32,7 +32,7 @@
         }
 
         header img {
-            width: 300px;
+            width: 150px;
             height: auto;
         }
 
@@ -43,7 +43,7 @@
             width: 90%;
             max-width: 1200px;
             margin: 20px auto;
-            flex-grow: 1; /* Permite al contenido ocupar el espacio restante */
+            flex-grow: 1; /* Asegura que el contenido ocupe el espacio disponible */
         }
 
         button {
@@ -75,7 +75,7 @@
             padding: 10px 0;
             font-size: 0.9em;
             text-align: center;
-            margin-top: auto; /* Permite que el footer siempre quede al final */
+            margin-top: auto; /* Asegura que el footer quede al final */
         }
 
         #login {
@@ -98,7 +98,7 @@
             text-align: center;
         }
 
-        #login button {
+	 #login button {
             width: 200px; /* Hace que el botón de acceso sea más ancho */
         }
     </style>
@@ -126,7 +126,7 @@
         // Contraseña para acceder al contenido
         function checkPassword() {
             const password = document.getElementById("password").value;
-            const correctPassword = "123";
+            const correctPassword = "Depor2024"; // Cambia esta contraseña según tu preferencia
             if (password === correctPassword) {
                 document.getElementById("login").style.display = "none";
                 document.getElementById("content").style.display = "block";
@@ -144,15 +144,23 @@
             { name: "Descargar Programa para reiniciar servicio de Impresión", id: "141qR7eZsds4OPuG11Kh65G2YK-s0SEIu" },
             { name: "Descargar DesInstalador", id: "1IbBs1ph9TxffkynubS0BvbIB1wjPaVOM" },
             { name: "Descargar Office 2024", id: "1AQu34EYfarrYLOOmNH6RjUWKpSiZ6uok" }
-            { name: "Descargar Mantenedor de Vendedores", id: "1RyI1zCrlDPse1_STx5sPUjHggWAXmFQx" }
-            { name: "Descargar Office 2024", id: "1AQu34EYfarrYLOOmNH6RjUWKpSiZ6uok" }
-            { name: "Descargar Office 2024", id: "1AQu34EYfarrYLOOmNH6RjUWKpSiZ6uok" }
-            { name: "Descargar Office 2024", id: "1AQu34EYfarrYLOOmNH6RjUWKpSiZ6uok" }
-            { name: "Descargar Office 2024", id: "1AQu34EYfarrYLOOmNH6RjUWKpSiZ6uok" }
-            { name: "Descargar Office 2024", id: "1AQu34EYfarrYLOOmNH6RjUWKpSiZ6uok" }    
-            { name: "Descargar Office 2024", id: "1AQu34EYfarrYLOOmNH6RjUWKpSiZ6uok" }
-            { name: "Descargar Office 2024", id: "1AQu34EYfarrYLOOmNH6RjUWKpSiZ6uok" }
-            { name: "Descargar Office 2024", id: "1AQu34EYfarrYLOOmNH6RjUWKpSiZ6uok" }
+	    { name: "Mantenedor de vendedores", id: "1RyI1zCrlDPse1_STx5sPUjHggWAXmFQx" }
+	    { name: "Vacío", id: "" }
+	    { name: "Vacío", id: "" }
+	    { name: "Vacío", id: "" }
+	    { name: "Vacío", id: "" }
+	    { name: "Vacío", id: "" }
+            { name: "Vacío", id: "" }
+            { name: "Vacío", id: "" }
+            { name: "Vacío", id: "" }
+            { name: "Vacío", id: "" }
+            { name: "Vacío", id: "" }
+            { name: "Vacío", id: "" }
+            { name: "Vacío", id: "" }
+            { name: "Vacío", id: "" }
+            { name: "Vacío", id: "" }
+            { name: "Vacío", id: "" }
+            { name: "Vacío", id: "" }
         ];
 
         // Función para generar botones dinámicamente
