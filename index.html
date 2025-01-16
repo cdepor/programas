@@ -135,41 +135,15 @@
             }
         }
 
-        // Lista de botones con sus nombres y IDs de Google Drive
+        // Lista de botones con sus nombres, IDs de Google Drive y tipo (descarga o carpeta)
         const programs = [
-            { name: "Exclusión Defender", id: "1-DVbgjpybUtVSgHfiWUqv_53akEiV_1i" },
-            { name: " Winrar", id: "1AJq5Tn1uj9wjH47vY7jP-3gNihDm3P4m" },
-            { name: "Programa para Instalar PC nuevo", id: "1XJxfo22b53eaHBqf9ilOx9ACDfF6x1go" },
-            { name: "Programa para Subir FotosMacro al Drive", id: "10QMnvYNtl1CqMFGR35voVHZ3B2Yxl6D_" },
-            { name: "Programa para reiniciar servicio de Impresión", id: "141qR7eZsds4OPuG11Kh65G2YK-s0SEIu" },
-            { name: "DesInstalador", id: "1IbBs1ph9TxffkynubS0BvbIB1wjPaVOM" },
-            { name: "Office 2024", id: "1zq_Ecm0b7_7tC2VrNjbuUjPc0ggjSwwn" },
-            { name: "Mantenedor de vendedores", id: "1RyI1zCrlDPse1_STx5sPUjHggWAXmFQx" },
-            { name: "RenombrarImagenes", id: "1Ab9ZE1y_AraY9mtnymB5XnpEvKC0Ibs_" },
-            { name: "Bixolon Drivers", id: "1i2EAoagdxQLyf81yrTNl6_EMVPG4EDdO" },
-            //{ name: "Vacío", id: "" },
-            //{ name: "Vacío", id: "" },
-            //{ name: "Vacío", id: "" },
-            //{ name: "Vacío", id: "" },
-            //{ name: "Vacío", id: "" },
-            //{ name: "Vacío", id: "" },
-            //{ name: "Vacío", id: "" },
-            //{ name: "Vacío", id: "" },
-            //{ name: "Vacío", id: "" },
-            //{ name: "Vacío", id: "" },
-            //{ name: "Vacío", id: "" },
-            //{ name: "Vacío", id: "" },
-            //{ name: "Vacío", id: "" },
-            //{ name: "Vacío", id: "" },
-            //{ name: "Vacío", id: "" },
-                    
-
-            
-
-            
-            
-            
-            
+            { name: "Exclusión Defender", id: "1-DVbgjpybUtVSgHfiWUqv_53akEiV_1i", type: "download" },
+            { name: "Winrar", id: "1AJq5Tn1uj9wjH47vY7jP-3gNihDm3P4m", type: "download" },
+            { name: "Instalar PC nuevo", id: "1XJxfo22b53eaHBqf9ilOx9ACDfF6x1go", type: "download" },
+            { name: "FotosMacro al Drive", id: "10QMnvYNtl1CqMFGR35voVHZ3B2Yxl6D_", type: "download" },
+            { name: "Reiniciar servicio de Impresión", id: "141qR7eZsds4OPuG11Kh65G2YK-s0SEIu", type: "download" },
+            { name: "Office 2024", id: "1zq_Ecm0b7_7tC2VrNjbuUjPc0ggjSwwn", type: "download" },
+            { name: "Office 2024", id: "1i2EAoagdxQLyf81yrTNl6_EMVPG4EDdO", type: "folder" },
         ];
 
         // Función para generar botones dinámicamente
@@ -178,12 +152,16 @@
             programs.forEach(program => {
                 const button = document.createElement("button");
                 button.textContent = program.name;
-                if (program.id) {
+                if (program.type === "download") {
                     button.onclick = () => {
                         location.href = `https://drive.google.com/uc?export=download&id=${program.id}`;
                     };
+                } else if (program.type === "folder") {
+                    button.onclick = () => {
+                        location.href = `https://drive.google.com/drive/folders/${program.id}`;
+                    };
                 } else {
-                    button.disabled = true; // Botones vacíos no hacen nada
+                    button.disabled = true; // Si el tipo no está definido, deshabilitar botón
                 }
                 container.appendChild(button);
             });
